@@ -1,0 +1,21 @@
+#yahoo finaNCE
+
+
+import yfinance as yf
+import pandas as pd
+
+# Define ticker symbol
+tickersymbol = "AAPL"
+
+# Get data on ticker
+tickerdata = yf.Ticker(tickersymbol)
+
+# Get historical prices of the ticker
+tickerDf = tickerdata.history(period='1d', start='2010-5-31', end='2020-5-31')
+
+# Last closing price
+last_close_price = tickerDf['Close'].iloc[-1]
+print(last_close_price)
+
+tickerDf.head()
+print(tickerDf.shape)
